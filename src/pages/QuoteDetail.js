@@ -8,22 +8,16 @@ import HighlightedQuote from "../components/quotes/HighlightedQuote";
 import Comments from "../components/comments/Comments";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 
-const DUMMY_QUOTES = [
-  { id: "1", author: "Max", text: "Learning React is fun." },
-  { id: "2", author: "Daniel", text: "To think, so I am." },
-  { id: "3", author: "Nemir", text: "So muss sein." },
-];
-
 export default function QuoteDetail() {
+  const match = useRouteMatch();
+  const params = useParams();
+
   const {
     sendRequest,
     status,
     data: loadedQuote,
     error,
   } = useHttp(getSingleQuote, true);
-
-  const match = useRouteMatch();
-  const params = useParams();
 
   const { quoteId } = params;
 
@@ -45,7 +39,7 @@ export default function QuoteDetail() {
 
   const quote = loadedQuote;
 
-  if (!quote) {
+  if (!quote.text) {
     return <p> no quote found.</p>;
   }
 

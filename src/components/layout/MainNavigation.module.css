@@ -10,6 +10,10 @@
 
 .logo {
   font-size: 2rem;
+  color: white !important;
+}
+
+.logo a:-webkit-any-link {
   color: white;
 }
 

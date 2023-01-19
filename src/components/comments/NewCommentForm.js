@@ -21,13 +21,14 @@ const NewCommentForm = (props) => {
   const submitFormHandler = (event) => {
     event.preventDefault();
     const enteredText = commentTextRef.current.value;
-    console.log (props.quoteId);
+    // optional: Could validate here
     sendRequest({
       commentData: { text: enteredText },
       quoteId: props.quoteId,
     });
 
-    // optional: Could validate here
+    commentTextRef.current.value = "";
+
   };
 
   return (

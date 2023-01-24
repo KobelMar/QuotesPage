@@ -4,8 +4,6 @@ import { useHistory } from "react-router-dom";
 import useHttp from "../hooks/use-http";
 
 import QuoteForm from "../components/quotes/QuoteForm";
-import LoadingSpinner from "../components/ui/LoadingSpinner";
-
 import { addQuote } from "../lib/api";
 
 export default function NewQuote() {
